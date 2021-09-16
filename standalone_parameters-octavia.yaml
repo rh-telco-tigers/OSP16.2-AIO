@@ -1,0 +1,21 @@
+parameter_defaults:
+  NtpServer: 192.168.50.1
+  CloudName: 192.168.50.20
+  CloudDomain: osp.home.lab
+  ControlPlaneStaticRoutes:
+    - ip_netmask: 0.0.0.0/0
+      next_hop: 192.168.50.1
+      default: true
+  Debug: true
+  DeploymentUser: stack
+  DnsServers:
+    - 192.168.50.1
+    - 192.168.1.1
+  NeutronPublicInterface: eno1
+  NeutronDnsDomain: localdomain
+  NeutronBridgeMappings: datacentre:br-ctlplane
+  NeutronPhysicalBridge: br-ctlplane
+  StandaloneEnableRoutedNetworks: false
+  StandaloneHomeDir: /home/stack
+  StandaloneLocalMtu: 1500
+  OctaviaAmphoraSshKeyFile: /home/stack/.ssh/id_rsa.pub
