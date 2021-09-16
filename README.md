@@ -11,12 +11,19 @@ TripleO can be used as a standalone environment with all services installed on a
 - RHEL 8.4 installed
 
 # Deploying a Standalone Openstack Node
-Before you can begin deploying the all-in-one environment, you must configure a non-root user and install the necessary packages and dependencies
+Before you can begin deploying the all-in-one environment, you must configure a non-root user and install the necessary packages and dependencies.
 ```bash
 [root@aio]# useradd stack
 [root@aio]# passwd stack
 [root@aio]# echo "stack ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/stack
 [root@aio]# chmod 0440 /etc/sudoers.d/stack
+```
+Also add host entry in /etc/host file. (I was missing this and deployment was failing at step 2)
+```bash
+[root@aio]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.50.20	aio.osp.home.lab aio  <======= this entry
 ```
 Login as stack and register the machine with Red Hat Subscription Manager
 ```bash
