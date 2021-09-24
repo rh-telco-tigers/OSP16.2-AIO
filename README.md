@@ -28,7 +28,7 @@ Also add host entry in /etc/host file. (I was missing this and deployment was fa
 Login as stack and register the machine with Red Hat Subscription Manager
 ```bash
 [stack@aio]# sudo subscription-manager register
-[stack@aio]# sudo subscription-manager attach pool <pool-id>
+[stack@aio]# sudo subscription-manager attach --pool <pool-id>
 [stack@aio]# sudo subscription-manager release --set=8.4
 [stack@aio]# sudo dnf install -y dnf-utils
 [stack@aio]# sudo subscription-manager repos --disable=*
